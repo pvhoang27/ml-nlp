@@ -29,3 +29,6 @@ bias = model_auto.layers[2].get_weights()[1]
 
 print('Shape of embedding_matrix: ', embedding_matrix.shape)
 print('Embedding_matrix: \n', embedding_matrix)
+
+
+np.save('embedding_matrix.npy', embedding_matrix)
