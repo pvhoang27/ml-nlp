@@ -1,7 +1,14 @@
 from keras.layers import Dense, Input
 from keras.models import Model, Sequential
 from keras.optimizers import RMSprop, Adam
+from scipy.sparse import coo_matrix
+import numpy as np
 
+# Tạo ma trận X (15x15) như b4.py
+row = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13]
+col = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14]
+data = [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+X = coo_matrix((data, (row, col)), shape=(15, 15)).toarray()
 def autoencoder(input_unit, hidden_unit):
     model = Sequential()
     model.add(Dense(input_unit, input_shape = (15,), activation = 'relu'))
